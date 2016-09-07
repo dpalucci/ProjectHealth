@@ -10,7 +10,7 @@ Domenic - Collect Recipe data and calorie (protein, Carb) count
 
 09/07/2016
 Yao
-1. working on completing the database diagram
+1. continue working on completing the database diagram
 2. Found site https://recipes.sparkpeople.com/home.asp to assist meal plans
 Domenic
 1.Reorganization of User interface complete.
