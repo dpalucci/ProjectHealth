@@ -68,6 +68,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Database.cs" />
     <Compile Include="SelectorPage.xaml.cs">
       <DependentUpon>SelectorPage.xaml</DependentUpon>
     </Compile>

@@ -12,6 +12,13 @@ Domenic - Collect Recipe data and calorie (protein, Carb) count
 Yao
 1. continue working on completing the database diagram
 2. Found site https://recipes.sparkpeople.com/home.asp to assist meal plans
+3. complete trello registration
+4. mini homework in bitbucket
+5. connect to Azure from home
+
 Domenic
 1.Reorganization of User interface complete.
 2. Setup and shared Github with Yao complete.
+3. mini homework in bitbucket
+4.  connect to Azure from home
+5. reorganize windows as per Greg
