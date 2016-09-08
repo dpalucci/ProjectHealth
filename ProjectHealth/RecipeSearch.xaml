@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         Title="SearchPage" Height="300" Width="450">
     <Grid>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="100" ToolTip=""/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="100" ToolTip="">
+            <ComboBoxItem Content="General Tao Chicken"/>
+        </ComboBox>
         <CheckBox x:Name="checkBox" Content="Poultry" HorizontalAlignment="Left" Margin="139,10,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox1" Content="Fish" HorizontalAlignment="Left" Margin="139,32,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox2" Content="Beef" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox3" Content="Soup" HorizontalAlignment="Left" Margin="241,32,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox4" Content="Dessert" HorizontalAlignment="Left" Margin="139,53,0,0" VerticalAlignment="Top"/>
         <CheckBox x:Name="checkBox5" Content="Snacks" HorizontalAlignment="Left" Margin="241,53,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="334,166,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="334,166,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
         <DataGrid x:Name="dgRecipe" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Height="166" Width="290">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*" />
