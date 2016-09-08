@@ -56,6 +56,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="MealPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RecipeSearch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SelectorPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -69,6 +77,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Database.cs" />
+    <Compile Include="MealPicker.xaml.cs">
+      <DependentUpon>MealPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RecipeSearch.xaml.cs">
+      <DependentUpon>RecipeSearch.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectorPage.xaml.cs">
       <DependentUpon>SelectorPage.xaml</DependentUpon>
     </Compile>
