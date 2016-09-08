@@ -22,3 +22,16 @@ Domenic
 3. mini homework in bitbucket
 4.  connect to Azure from home
 5. reorganize windows as per Greg
+
+09/08/2016
+Yao
+1. completed creation of tables, but having issues to display in diagram. 
+2. trello registration completed.
+3. 
+
+Domenic
+1. Connection from Azure - not sure it's working
+2. mini homework completed.(User story upgrades).
+3. added meal picker window.
+
+

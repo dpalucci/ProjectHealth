@@ -1,0 +1,16 @@
+1. Add portion size to Menu option
+	a)Add portion size selection in UI.
+	b)Add "Portion" column to Meals Table.
+2. Add drinks calorie count
+	a)Add Drinks selection in UI.
+	b)Add Drinks Table.
+3. Add pictures of meals
+	a)Resource images of meals
+	b)Readjust UI to accommodate images
+4. Add more desert options
+	a)Add another record in meals table
+	b)Add combobox option in UI.
+5. Provide Calendar view (Week / month)
+	a)Create another window view with full calendar
+6. Add more images to replace text
+ 
