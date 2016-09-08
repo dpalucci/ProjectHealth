@@ -64,10 +64,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SelectorPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -82,9 +78,6 @@
     </Compile>
     <Compile Include="RecipeSearch.xaml.cs">
       <DependentUpon>RecipeSearch.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="SelectorPage.xaml.cs">
-      <DependentUpon>SelectorPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
