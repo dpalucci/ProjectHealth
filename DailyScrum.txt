@@ -27,7 +27,7 @@ Domenic
 Yao
 1. completed creation of tables, but having issues to display in diagram. 
 2. trello registration completed.
-3. 
+3. having DB connections to Azure, will discuss with Teacher.
 
 Domenic
 1. Connection from Azure - not sure it's working
