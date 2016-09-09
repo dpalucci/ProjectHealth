@@ -19,9 +19,13 @@ namespace ProjectHealth
     /// </summary>
     public partial class SearchPage : Window
     {
+        List<Meal> mealList = new List<Meal>();
         public SearchPage()
         {
             InitializeComponent();
+            dgMealList.IsReadOnly = true;
+            dgMealList.SelectionMode = DataGridSelectionMode.Single;
+            btnAdd.IsEnabled = false;
         }
 
         private void listMeal_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -31,6 +35,19 @@ namespace ProjectHealth
             {
                 return;
             }
+            else
+            {
+                cbListMeal.Items.Add(cbListMeal.SelectedItem);
+                cbListMeal.Items.Refresh();
+            }
+
         }
+    }
+    internal class Meal
+    {
+        public string Recipe { get; set; }
+        public string Type { get; set; }
+        public string MealName { get; set; }
+        public int Calories { get; set; }
     }
 }

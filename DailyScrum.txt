@@ -35,4 +35,7 @@ Domenic
 3. added meal picker window.
 4. need to resolve how to list a selection in datagrid from combobox.
 
-
+09/09/2016
+Domenic
+1. still working on item 4 of previous day.
+2. started to create trello plan.
