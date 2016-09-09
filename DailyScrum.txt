@@ -33,5 +33,6 @@ Domenic
 1. Connection from Azure - not sure it's working
 2. mini homework completed.(User story upgrades).
 3. added meal picker window.
+4. need to resolve how to list a selection in datagrid from combobox.
 
 

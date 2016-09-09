@@ -1,16 +1,13 @@
-1. Add portion size to Menu option
-	a)Add portion size selection in UI.
-	b)Add "Portion" column to Meals Table.
-2. Add drinks calorie count
-	a)Add Drinks selection in UI.
-	b)Add Drinks Table.
-3. Add pictures of meals
+1. Add basic user interface to select single day meal
+	a)create wpf window with all required labels
+	b)review how to make selection and add to datagrid column.
+	c)create tables for meals, recipes, & user.
+	
+2. Expand to include a display for calendar with appropriate meal plan for each day
+	a)research how to best implement calendar
+	b)
+3. Expand to include pictures of meals
 	a)Resource images of meals
 	b)Readjust UI to accommodate images
-4. Add more desert options
-	a)Add another record in meals table
-	b)Add combobox option in UI.
-5. Provide Calendar view (Week / month)
-	a)Create another window view with full calendar
-6. Add more images to replace text
+
  

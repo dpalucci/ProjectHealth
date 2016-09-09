@@ -24,6 +24,13 @@ namespace ProjectHealth
             InitializeComponent();
         }
 
-        
+        private void listMeal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var item = ((ComboBoxItem)cbListMeal.SelectedItem).Content;
+            if (item == null)
+            {
+                return;
+            }
+        }
     }
 }

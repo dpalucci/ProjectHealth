@@ -7,17 +7,20 @@
         mc:Ignorable="d"
         Title="SearchPage" Height="300" Width="450">
     <Grid>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="100" ToolTip="">
+        <ComboBox x:Name="cbListMeal" HorizontalAlignment="Left" Margin="21,16,0,0" VerticalAlignment="Top" Width="154" SelectionChanged="listMeal_SelectionChanged">
+            <ComboBoxItem IsSelected="True">--Select Meal--</ComboBoxItem>
             <ComboBoxItem Content="General Tao Chicken"/>
+            <ComboBoxItem Content="Lemon Pasta Chicken"/>
+            <ComboBoxItem Content="Strawberry Chicken"/>
         </ComboBox>
-        <CheckBox x:Name="checkBox" Content="Poultry" HorizontalAlignment="Left" Margin="139,10,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox1" Content="Fish" HorizontalAlignment="Left" Margin="139,32,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox2" Content="Beef" HorizontalAlignment="Left" Margin="241,10,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox3" Content="Soup" HorizontalAlignment="Left" Margin="241,32,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox4" Content="Dessert" HorizontalAlignment="Left" Margin="139,53,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="checkBox5" Content="Snacks" HorizontalAlignment="Left" Margin="241,53,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button" Content="Add" HorizontalAlignment="Left" Margin="334,166,0,0" VerticalAlignment="Top" Width="75" Click="button_Click"/>
-        <DataGrid x:Name="dgRecipe" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Height="166" Width="290">
+        <CheckBox x:Name="cbChicken" Content="Poultry" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72"/>
+        <CheckBox x:Name="cbFish" Content="Fish" HorizontalAlignment="Left" Margin="190,32,0,0" VerticalAlignment="Top" Width="52"/>
+        <CheckBox x:Name="cbBeef" Content="Beef" HorizontalAlignment="Left" Margin="317,10,0,0" VerticalAlignment="Top" Width="53"/>
+        <CheckBox x:Name="cbSoup" Content="Soup" HorizontalAlignment="Left" Margin="317,32,0,0" VerticalAlignment="Top" Width="59"/>
+        <CheckBox x:Name="cbDessert" Content="Dessert" HorizontalAlignment="Left" Margin="190,53,0,0" VerticalAlignment="Top" Width="74"/>
+        <CheckBox x:Name="cbSnacks" Content="Snacks" HorizontalAlignment="Left" Margin="317,53,0,0" VerticalAlignment="Top" Width="70"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="334,166,0,0" VerticalAlignment="Top" Width="75"/>
+        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,81,0,0" VerticalAlignment="Top" Height="166" Width="290">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="2*"/>
