@@ -39,3 +39,7 @@ Domenic
 Domenic
 1. still working on item 4 of previous day.
 2. started to create trello plan.
+3. 
+Yao
+1. Try to resolve combobox handlerlist issue. 
+2. Complete tables with recipe data(fat, type, protein).

@@ -1,13 +1,16 @@
-1. Add basic user interface to select single day meal
-	a)create wpf window with all required labels
-	b)review how to make selection and add to datagrid column.
-	c)create tables for meals, recipes, & user.
+1. Create user login & Registration
+	a)Review Dialog boxe tutorial
+	b)create user Table in DB to store information.
+	b)create window page to enter values.
+	d)configure relationship with respect to other tables.
 	
-2. Expand to include a display for calendar with appropriate meal plan for each day
-	a)research how to best implement calendar
-	b)
-3. Expand to include pictures of meals
+2. Provide Calendar view (Week / month)
+	a)research how to create a full calendar and to display
+	b)Create another window view with full calendar
+	c)
+3. Add pictures of meals
 	a)Resource images of meals
 	b)Readjust UI to accommodate images
+
 
  
