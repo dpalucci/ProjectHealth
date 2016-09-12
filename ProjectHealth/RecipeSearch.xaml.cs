@@ -32,19 +32,19 @@ namespace ProjectHealth
 
 
 
-        private void cbListMeal_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void cbRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
-            if (cbListMeal.SelectedIndex > 0)
+            if (cbRecipeList.SelectedIndex > 0)
             {
-                string item = cbListMeal.SelectedItem.ToString();
+                string item = cbRecipeList.SelectedItem.ToString();
                 if (item == null)
                 {
                    return;
                 }
-            //    MessageBox.Show("items is = " + item);
+                //    MessageBox.Show("items is = " + item);
                 // dgMealList.Items.Add(item);
-                cbListMeal.Items.Refresh();
+                cbRecipeList.Items.Refresh();
 
 
                 // MessageBox.Show("Please select an item from Menu list");
@@ -69,7 +69,7 @@ namespace ProjectHealth
         {
 
             string title = "";
-            title = cbListMeal.Text;
+            title = cbRecipeList.Text;
 
             //         int age = int.Parse(tbAge.Text);
             //       string name = tbName.Text;

@@ -13,7 +13,7 @@
             <ColumnDefinition Width="136*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="cbListMeal" HorizontalAlignment="Left" Margin="21,0,0,405" VerticalAlignment="Bottom" Width="486"  Height="33" SelectionChanged="cbListMeal_SelectionChanged">
+        <ComboBox x:Name="cbRecipeList" HorizontalAlignment="Left" Margin="21,0,0,405" VerticalAlignment="Bottom" Width="486"  Height="33" SelectionChanged="cbRecipeList_SelectionChanged">
             <ComboBoxItem IsSelected="True">--Select a Meal--</ComboBoxItem>
             <ComboBoxItem Content="General Tao Chicken"/>
             <ComboBoxItem Content="Lemon Pasta Chicken"/>
