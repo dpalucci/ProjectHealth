@@ -45,8 +45,15 @@ Yao
 2. Complete tables with recipe data(fat, type, protein).
 
 09/12/2016
-Yao/Domenic
-1. recreate Database on new SQL server -completed.
-Yao
-1.connect to DB
-2. resolve display to list in datagrid.
+1. Done
+Database completed
+
+2. Not Quite done
+display on datagrid
+
+3. ToDo
+Add to user tables
+
+4. Need Help Section
+binding to combobox 
+resolve display to list in datagrid.
