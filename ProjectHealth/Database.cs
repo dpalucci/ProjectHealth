@@ -20,7 +20,7 @@ namespace ProjectHealth
     }
     class Database
     {
-        const string CONN_STRING = @"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=E:\Download\ProjectHealthDB.mdf;Integrated Security=True;Connect Timeout=30";
+        const string CONN_STRING = @"Data Source=ipd8vs.database.windows.net;Initial Catalog=ProjectHealthDB;Integrated Security=False;User ID=sqladmin;Password=IPD8rocks!;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private SqlConnection conn;
 
