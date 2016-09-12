@@ -7,20 +7,23 @@
         mc:Ignorable="d"
         Title="SearchPage" Height="545" Width="713">
     <Grid>
-        <ComboBox x:Name="cbListMeal" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="486" SelectionChanged="listMeal_SelectionChanged" Height="33">
+        <ComboBox x:Name="cbListRecipe" HorizontalAlignment="Left" Margin="21,10,0,0" VerticalAlignment="Top" Width="486" SelectionChanged="cbListRecipe_SelectionChanged" Height="33">
             <ComboBoxItem IsSelected="True">--Select a Meal--</ComboBoxItem>
-            <ComboBoxItem Content="General Tao Chicken"/>
-            <ComboBoxItem Content="Lemon Pasta Chicken"/>
-            <ComboBoxItem Content="Strawberry Chicken"/>
-            <ComboBoxItem Content="Calamari Steaks"/>
-            <ComboBoxItem Content="FishTacos"/>
-            <ComboBoxItem Content="King Crab Stuffed Salmon"/>
-            <ComboBoxItem Content="Asian Dumplings"/>
-            <ComboBoxItem Content="Homemade Pizza"/>
-            <ComboBoxItem Content="Lulu's Lasagna"/>
-            <ComboBoxItem Content="White Chocolate Banana"/>
-            <ComboBoxItem Content="Blueberry Smoothie"/>
-            <ComboBoxItem Content="Morning Eye-Opener"/>
+            <ComboBoxItem Content="Chicken with Mustard"/>
+            <ComboBoxItem Content="Cheese and Ham-Stuffed Chicken "/>
+            <ComboBoxItem Content="Lime-Grilled Chicken"/>
+            <ComboBoxItem Content="Blueberry Bliss Cheesecake Makeover"/>
+            <ComboBoxItem Content="Strawberry Napoleons"/>
+            <ComboBoxItem Content="Guilt Free Pineapple Orange Cake"/>
+            <ComboBoxItem Content="Miso Caper Glazed Salmon"/>
+            <ComboBoxItem Content="Spicy Salmon Filets"/>
+            <ComboBoxItem Content="Grilled Mediteranean Ahi Tuna"/>
+            <ComboBoxItem Content="Beef Chili"/>
+            <ComboBoxItem Content="Bulgogi"/>
+            <ComboBoxItem Content="Mongolian Beef"/>
+            <ComboBoxItem Content="Rustic Italian Tortellini Soup"/>
+            <ComboBoxItem Content="Beef Barley Soup"/>
+            <ComboBoxItem Content="Spicy Chicken Bean Soup"/>
         </ComboBox>
         <!--
         <CheckBox x:Name="cbChicken" Content="Poultry" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72"/>
@@ -31,7 +34,7 @@
         <CheckBox x:Name="cbSnacks" Content="Snacks" HorizontalAlignment="Left" Margin="317,53,0,0" VerticalAlignment="Top" Width="70"/>
         -->
         <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="527,198,0,0" VerticalAlignment="Top" Width="168" Height="32"/>
-        <DataGrid x:Name="dgMealList" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,98,0,0" VerticalAlignment="Top" Height="301" Width="486">
+        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,98,0,0" VerticalAlignment="Top" Height="301" Width="486">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*" />
                 <DataGridTextColumn Header="Type" Binding="{Binding Type}" Width="2*"/>
