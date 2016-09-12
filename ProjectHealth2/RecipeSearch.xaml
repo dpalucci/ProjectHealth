@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectHealth"
         mc:Ignorable="d"
-        Title="SearchPage" Height="545" Width="713">
+        Title="SearchPage" Height="500" Width="713">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="540*"/>
@@ -13,7 +13,7 @@
             <ColumnDefinition Width="133*"/>
             <ColumnDefinition Width="14*"/>
         </Grid.ColumnDefinitions>
-        <ComboBox x:Name="cbListMeal" HorizontalAlignment="Left" Margin="21,0,0,473" VerticalAlignment="Bottom" Width="486"  Height="33" SelectionChanged="cbListMeal_SelectionChanged">
+        <ComboBox x:Name="cbListMeal" HorizontalAlignment="Left" Margin="21,0,0,405" VerticalAlignment="Bottom" Width="486"  Height="33" SelectionChanged="cbListMeal_SelectionChanged">
             <ComboBoxItem IsSelected="True">--Select a Meal--</ComboBoxItem>
             <ComboBoxItem Content="General Tao Chicken"/>
             <ComboBoxItem Content="Lemon Pasta Chicken"/>
@@ -36,7 +36,7 @@
         <CheckBox x:Name="cbDessert" Content="Dessert" HorizontalAlignment="Left" Margin="190,53,0,0" VerticalAlignment="Top" Width="74"/>
         <CheckBox x:Name="cbSnacks" Content="Snacks" HorizontalAlignment="Left" Margin="317,53,0,0" VerticalAlignment="Top" Width="70"/>
         -->
-        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="527,198,0,0" VerticalAlignment="Top" Width="168" Height="32" Grid.ColumnSpan="4" Click="btnAdd_Click"/>
+        <Button x:Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="0,198,0,0" VerticalAlignment="Top" Width="107" Height="32" Click="btnAdd_Click" Grid.Column="2"/>
         <DataGrid x:Name="dgMealList" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="21,98,0,0" VerticalAlignment="Top" Height="301" Width="486" SelectionChanged="dgMealList_SelectionChanged">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Binding="{Binding Title}" Width="4*" />
@@ -47,14 +47,14 @@
                 <DataGridTextColumn Header="Fat" Binding="{Binding Fat}" Width="1*" />
             </DataGrid.Columns>
         </DataGrid>
-        <Button x:Name="btnDelete" Content="Delete&#xD;&#xA;" HorizontalAlignment="Left" Margin="527,367,0,0" VerticalAlignment="Top" Width="168" Height="32" Grid.ColumnSpan="4"/>
-        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="527,268,0,0" VerticalAlignment="Top" Width="168" Height="33" Grid.ColumnSpan="4"/>
+        <Button x:Name="btnDelete" Content="Delete&#xD;&#xA;" HorizontalAlignment="Left" Margin="0,367,0,0" VerticalAlignment="Top" Width="107" Height="32" Grid.Column="2"/>
+        <Button x:Name="btnUpdate" Content="Update" HorizontalAlignment="Left" Margin="0,268,0,0" VerticalAlignment="Top" Width="107" Height="33" Grid.Column="2"/>
         <Grid Margin="0,10,-0.333,-10" Grid.ColumnSpan="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="292*"/>
                 <ColumnDefinition Width="415*"/>
             </Grid.ColumnDefinitions>
-            <Image x:Name="imaRecipe" HorizontalAlignment="Left" Height="81" Margin="303.333,10,0,0" VerticalAlignment="Top" Width="100" Grid.Column="1">
+            <Image x:Name="imaRecipe" HorizontalAlignment="Left" Height="120" Margin="241,10,0,0" VerticalAlignment="Top" Width="163" Grid.Column="1">
                 <Image.Source>CheeseHamStuffedChicken.PNG</Image.Source>
             </Image>
         </Grid>
