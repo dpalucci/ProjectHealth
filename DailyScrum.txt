@@ -43,3 +43,7 @@ Domenic
 Yao
 1. Try to resolve combobox handlerlist issue. 
 2. Complete tables with recipe data(fat, type, protein).
+
+09/12/2016
+Yao
+1. recreate Database on new SQL server
