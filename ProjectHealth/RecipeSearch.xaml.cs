@@ -31,7 +31,7 @@ namespace ProjectHealth
         }
 
 
-
+        
         private void cbRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -56,7 +56,8 @@ namespace ProjectHealth
 
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e) 
+            
         {
 
             Meal newMeal = getNewMeal();
@@ -64,7 +65,7 @@ namespace ProjectHealth
             mealList.Add(newMeal);
             dgMealList.Items.Refresh();
         }
-
+        
         private Meal getNewMeal()
         {
 
