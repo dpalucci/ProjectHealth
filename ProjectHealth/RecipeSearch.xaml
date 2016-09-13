@@ -15,6 +15,7 @@
         </Grid.ColumnDefinitions>
         <ComboBox x:Name="cbRecipeList" HorizontalAlignment="Left" Margin="21,0,0,405" VerticalAlignment="Bottom" Width="486"  Height="33" SelectionChanged="cbRecipeList_SelectionChanged" >
             <ComboBoxItem IsSelected="True">--Select a Meal--</ComboBoxItem>
+            <!--
             <ComboBoxItem Content="General Tao Chicken"/>
             <ComboBoxItem Content="Lemon Pasta Chicken"/>
             <ComboBoxItem Content="Strawberry Chicken"/>
@@ -27,6 +28,7 @@
             <ComboBoxItem Content="White Chocolate Banana"/>
             <ComboBoxItem Content="Blueberry Smoothie"/>
             <ComboBoxItem Content="Morning Eye-Opener"/>
+            -->
         </ComboBox>
         <!--
         <CheckBox x:Name="cbChicken" Content="Poultry" HorizontalAlignment="Left" Margin="190,10,0,0" VerticalAlignment="Top" Width="72"/>

@@ -25,11 +25,30 @@ namespace ProjectHealth
         public SearchPage()
         {
             InitializeComponent();
+
             dgMealList.IsReadOnly = true;
             dgMealList.SelectionMode = DataGridSelectionMode.Single;
             dgMealList.ItemsSource = mealList;
             btnAdd.IsEnabled = true;
+            fillCombo();
         }
+
+        void fillCombo()
+        {
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Recipe", conn);
+            using (SqlDataReader reader = cmd.ExecuteReader()) ;
+            string Query = "SELECT * FROM Recipe";
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        // column by name - the better (preferred) way                       
+                        string title = reader.GetString(reader.GetOrdinal("Title"));
+                        cbRecipeList.Items.Add(title);
+                    }
+                    
 /*
         public List<Recipe> GetAllRecipes()
         {

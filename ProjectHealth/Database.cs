@@ -45,12 +45,12 @@ namespace ProjectHealth
                 {
                     while (reader.Read())
                     {
-                        int id = reader.GetInt32(reader.GetOrdinal("Id"));
+                        //int id = reader.GetInt32(reader.GetOrdinal("Id"));
                         string title = reader.GetString(reader.GetOrdinal("Title"));
                         float calories = reader.GetFloat(reader.GetOrdinal("Protein"));
                         float protein = reader.GetFloat(reader.GetOrdinal("Calories"));
                         float fat = reader.GetFloat(reader.GetOrdinal("Fat"));
-                        Recipe r = new Recipe() { Id = id, Title = title, Protein = protein, Calories = calories, Fat = fat };
+                        Recipe r = new Recipe() { Title = title, Protein = protein, Calories = calories, Fat = fat };
                         list.Add(r);
                     }
                 }
