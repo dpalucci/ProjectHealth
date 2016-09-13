@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,9 +30,36 @@ namespace ProjectHealth
             dgMealList.ItemsSource = mealList;
             btnAdd.IsEnabled = true;
         }
+/*
+        public List<Recipe> GetAllRecipes()
+        {
+            List<Recipe> list = new List<Recipe>();
 
-
-        
+            SqlCommand cmd = new SqlCommand("SELECT * FROM Recipe", conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        // column by name - the better (preferred) way
+                        int id = reader.GetInt32(reader.GetOrdinal("Id"));
+                        string title = reader.GetString(reader.GetOrdinal("Title"));
+                        float calories = reader.GetFloat(reader.GetOrdinal("Calories"));
+                        float fat = reader.GetFloat(reader.GetOrdinal("Fat"));
+                        float carb = reader.GetFloat(reader.GetOrdinal("Carb"));
+                        float protein = reader.GetFloat(reader.GetOrdinal("Protein"));
+                        string type = reader.GetString(reader.GetOrdinal("Type"));
+                        Recipe r = new Recipe() { Id = id, Title = title, Calories = calories, Fat = fat, Carb = carb,
+                        Protein = protein, Type = type};
+                        list.Add(r);
+                        // Console.WriteLine("Person[{0}]: {1} is {2} y/o", id, name, age);
+                    }
+                }
+            }
+            return list;
+        }
+        */
         private void cbRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
@@ -42,8 +70,7 @@ namespace ProjectHealth
                 {
                    return;
                 }
-                //    MessageBox.Show("items is = " + item);
-                // dgMealList.Items.Add(item);
+                
                 cbRecipeList.Items.Refresh();
 
 
