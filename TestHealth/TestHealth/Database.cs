@@ -5,24 +5,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PeopleDB
+namespace TestHealth
 {
     // Entity
     class Recipe
     {
         public int Id { get; set; }
         public string Title { get; set; }
-        public float Calories { get; set; }
-        public float Fat { get; set; }
-        public float Carb { get; set; }
-        public float Protein { get; set; }
+        public double Calories { get; set; }
+        public double Fat { get; set; }
+        public double Carb { get; set; }
+        public double Protein { get; set; }
         public string Type { get; set; }
     }
 
-
     class Database
     {
-        const string CONN_STRING = @"Data Source=ipd8vs.database.windows.net;Initial Catalog=ProjectHealthDB;Persist Security Info=True;User ID=sqladmin;Password=***********";
+        const string CONN_STRING = @"Data Source=ipd8vs.database.windows.net;Initial Catalog=ProjectHealthDB;Integrated Security=False;User ID=sqladmin;Password=IPD8rocks!;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private SqlConnection conn;
 
@@ -34,7 +33,7 @@ namespace PeopleDB
 
         // during prototyping stage we make methods that are
         // not yet implemented throw new NotImplementedException();
-        public void AddPerson(Recipe r)
+        public void AddRecipe(Recipe r)
         {
             using (SqlCommand cmd = new SqlCommand("INSERT INTO Recipe (Title, Fat, Protein, Calories) VALUES (@Title, @Fat, @Protein, @Calories)"))
             {
@@ -62,11 +61,11 @@ namespace PeopleDB
                         // column by name - the better (preferred) way
                         
                         string title = reader.GetString(reader.GetOrdinal("Title"));
-                        float fat = reader.GetFloat(reader.GetOrdinal("Fat"));
-                        float Protein = reader.GetFloat(reader.GetOrdinal("Protein"));
-                        float Calories = reader.GetFloat(reader.GetOrdinal("Calories"));
-                        Recipe r = new Recipe() { Id = id, Title = title, Fat = fat, Protein = Protein, Calories = Calories };
-                        list.Add(p);
+                        double fat = reader.GetDouble(reader.GetOrdinal("Fat"));
+                        double Protein = reader.GetDouble(reader.GetOrdinal("Protein"));
+                        double Calories = reader.GetDouble(reader.GetOrdinal("Calories"));
+                        Recipe r = new Recipe() { Title = title, Fat = fat, Protein = Protein, Calories = Calories };
+                        list.Add(r);
                         // Console.WriteLine("Person[{0}]: {1} is {2} y/o", id, name, age);
                     }
                 }
@@ -74,14 +73,14 @@ namespace PeopleDB
             return list;
         }
 
-        public Person GetPersonById(int Id)
+        public Recipe GetRecipeById(int Id)
         {
             throw new NotImplementedException();
         }
 
-        public void DeletePersonById(int Id)
+        public void DeleteRecipeById(int Id)
         {
-            using (SqlCommand cmd = new SqlCommand("DELETE FROM Person WHERE Id=@Id", conn))
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM Recipe WHERE Id=@Id", conn))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Parameters.AddWithValue("@Id", Id);
@@ -89,15 +88,18 @@ namespace PeopleDB
             }
         }
 
-        public void UpdatePerson(Person p)
+        public void UpdateRecipe(Recipe r)
         {
             using (SqlCommand cmd = new SqlCommand(
-                "UPDATE Person SET Name = @Name, Age = @Age WHERE Id=@Id", conn))
+                "UPDATE Recipe SET Title = @Title, Fat = @Fat , Calories = @Calories, Protein = @Protein, Type = @Type, Carb = @Carb WHERE Id=@Id", conn))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Parameters.AddWithValue("@Name", p.Name);
-                cmd.Parameters.AddWithValue("@Age", p.Age);
-                cmd.Parameters.AddWithValue("@Id", p.Id);
+                cmd.Parameters.AddWithValue("@Title", r.Title);
+                cmd.Parameters.AddWithValue("@Fat", r.Fat);
+                cmd.Parameters.AddWithValue("@Protein", r.Protein);
+                cmd.Parameters.AddWithValue("@Calories", r.Calories);
+                cmd.Parameters.AddWithValue("@Carb", r.Carb);
+                cmd.Parameters.AddWithValue("@Id", r.Id);
                 cmd.ExecuteNonQuery();
             }
         }
