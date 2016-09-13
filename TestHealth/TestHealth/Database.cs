@@ -42,7 +42,7 @@ namespace TestHealth
                 cmd.Parameters.AddWithValue("@Title", r.Title);
                 cmd.Parameters.AddWithValue("@Fat", r.Fat);
                 cmd.Parameters.AddWithValue("@Protein", r.Protein);
-                cmd.Parameters.AddWithValue("@Calories", r.Calories);
+                cmd.Parameters.AddWithValue("@Calorie", r.Calories);
                 cmd.ExecuteNonQuery();
             }
         }
@@ -61,10 +61,11 @@ namespace TestHealth
                         // column by name - the better (preferred) way
                         
                         string title = reader.GetString(reader.GetOrdinal("Title"));
+                        double calories = reader.GetDouble(reader.GetOrdinal("Calories"));
                         double fat = reader.GetDouble(reader.GetOrdinal("Fat"));
-                        double Protein = reader.GetDouble(reader.GetOrdinal("Protein"));
-                        double Calories = reader.GetDouble(reader.GetOrdinal("Calories"));
-                        Recipe r = new Recipe() { Title = title, Fat = fat, Protein = Protein, Calories = Calories };
+                        double protein = reader.GetDouble(reader.GetOrdinal("Protein"));
+
+                        Recipe r = new Recipe() { Title = title, Calories = calories, Fat = fat, Protein = protein };
                         list.Add(r);
                         // Console.WriteLine("Person[{0}]: {1} is {2} y/o", id, name, age);
                     }
@@ -75,7 +76,14 @@ namespace TestHealth
 
         public Recipe GetRecipeById(int Id)
         {
-            throw new NotImplementedException();
+            Recipe r = new Recipe();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM Recipe WHERE Id=@Id", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+            }
+            return r;
         }
 
         public void DeleteRecipeById(int Id)
@@ -103,6 +111,8 @@ namespace TestHealth
                 cmd.ExecuteNonQuery();
             }
         }
+
+
 
     }
 }

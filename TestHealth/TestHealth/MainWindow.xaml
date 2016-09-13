@@ -12,7 +12,7 @@
                   SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Width="5*" IsReadOnly="True"  Binding="{Binding Path=Title}" />
-                <DataGridTextColumn Header="Calorie" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Caloris}" />
+                <DataGridTextColumn Header="Calories" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Caloris}" />
                 <DataGridTextColumn Header="Fat" Width="1*" IsReadOnly="True"  Binding="{Binding Path=Fat}" />
                 <DataGridTextColumn Header="Protein" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Protein}" />
             </DataGrid.Columns>
@@ -59,9 +59,7 @@
         </Label>
         <Label Content="            Protein:" HorizontalAlignment="Left" Height="33" Margin="29,349,0,-111" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="91" Grid.Column="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="137,354,0,-111" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="28" Width="89" Grid.Column="2"/>
-        <ComboBox x:Name="cbTitle" Grid.Column="2" HorizontalAlignment="Left" Margin="248,41,0,0" VerticalAlignment="Top" Width="126" SelectionChanged="cbTitle_SelectionChanged">
-            <ComboBoxItem >--Select a Recipe--</ComboBoxItem>
-        </ComboBox>
+        <ComboBox x:Name="cbTitle" Grid.Column="2" HorizontalAlignment="Left" Margin="248,41,0,0" VerticalAlignment="Top" Width="126" IsEditable="True" SelectionChanged="cbTitle_SelectionChanged"/>              
         <Label Content="Carbs:" HorizontalAlignment="Left" Margin="168,156,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
         <TextBox x:Name="tbCarb" HorizontalAlignment="Left" Height="23" Margin="248,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.585,2.119" Grid.Column="2"/>
     </Grid>
