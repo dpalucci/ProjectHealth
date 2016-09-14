@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -40,36 +41,57 @@ namespace ProjectHealth
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            // FIXME: verify user data is correct
+            // FIXME: verify user name is correct
             string name = tbName.Text;
-            if(name.Length < 3)
             {
-                MessageBox.Show("Invalid Name: Invalid name entered, must be > 2 characters",
-                    "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                return;
+                if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (name.Length < 3))
+                {
+                    //  name was incorrect
+                    MessageBox.Show("Invalid name, must be > 2 characters and with valid characters", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    tbName.Focus();
+                    return;
+                }
+                /*
+                if (name.Length < 3)
+                {
+                    MessageBox.Show("Invalid Name: Invalid name entered, must be > 2 characters",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return;
+                }
+                */
             }
+            //Age validation
             int age = int.Parse(tbAge.Text);
-            if (age < 0 || age > 130)
             {
-                MessageBox.Show("Invalid Age: Invalid age entered, must be >0 and < 130",
-                    "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                return;
+                if (age < 0 || age > 130)
+                {
+                    MessageBox.Show("Invalid Age: Invalid age entered, must be >0 and < 130",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return;
+                }
             }
+            //Weight Validation
             float weight = float.Parse(tbWeight.Text);
-            if (weight < 90 || weight > 650)
             {
-                MessageBox.Show("Invalid Weight: Invalid weight entered, must be >=90 and <= 650",
-                    "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                return;
+                if (weight < 90 || weight > 650)
+                {
+                    MessageBox.Show("Invalid Weight: Invalid weight entered, must be >=90 and <= 650",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return;
+                }
             }
+            //Height Validation
             float height = float.Parse(tbHeight.Text);
-            if (height < 3.5 || height > 8)
             {
-                MessageBox.Show("Invalid Height: Invalid height entered, must be >=3.5 and <= 8",
-                    "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                return;
+                if (height < 3.5 || height > 8)
+                {
+                    MessageBox.Show("Invalid Height: Invalid height entered, must be >=3.5 and <= 8",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return;
+                }
             }
-            string gender = tbGender.Text;
+            //Gender Selection thru Combobox
+            string gender = cbGender.Text;
             Person p = new Person() { Name = name, Age = age, Weight = weight, Height = height, Gender = gender };
             db.AddPerson(p);
                       

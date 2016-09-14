@@ -61,16 +61,27 @@ resolve display to list in datagrid.
 09/13/2016 
 1. Done
 Database completed
-
 2. Not Quite done
 RecipeSearch window 
 Add to user tables
-
 3. ToDo
 image display in window
 Calendar view
-
 4. Need Help Section
 binding to combobox 
 resolve display to list in datagrid.
 
+09/14/2016
+1. Done 
+Completed Database
+User submit window
+2. Not Quite done
+RecipeSearch window 
+Add to user tables
+3. ToDo
+Pass user infor to next window
+image display in window
+Calendar view
+4. Need Help Section
+binding to combobox 
+resolve display to list in datagrid.

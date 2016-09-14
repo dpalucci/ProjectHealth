@@ -13,7 +13,10 @@
         <Label x:Name="label1_Copy1" Content="Weight:" HorizontalAlignment="Left" Margin="29,157,0,0" VerticalAlignment="Top" Width="66"/>
         <TextBox x:Name="tbName" HorizontalAlignment="Left" Height="23" Margin="129,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="tbAge" HorizontalAlignment="Left" Height="23" Margin="129,76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="tbGender" HorizontalAlignment="Left" Height="23" Margin="129,117,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="cbGender" HorizontalAlignment="Left" Margin="129,118,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Name="cbMale">Male</ComboBoxItem>
+            <ComboBoxItem Name="cbFemale">Female</ComboBoxItem>
+        </ComboBox>
         <TextBox x:Name="tbWeight" HorizontalAlignment="Left" Height="23" Margin="129,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="button" Content="Maintenance Plan" HorizontalAlignment="Left" Margin="345,44,0,0" VerticalAlignment="Top" Width="140"/>
         <Button x:Name="button_Copy" Content="Intermediate Plan" HorizontalAlignment="Left" Margin="345,91,0,0" VerticalAlignment="Top" Width="140"/>
