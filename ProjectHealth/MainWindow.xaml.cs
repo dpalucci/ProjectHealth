@@ -47,7 +47,7 @@ namespace ProjectHealth
                 if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (name.Length < 3))
                 {
                     //  name was incorrect
-                    MessageBox.Show("Invalid name, must be > 2 characters and with valid characters", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Invalid name, must be > 2 valid characters and start with a Capital letter", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     tbName.Focus();
                     return;
                 }
@@ -94,9 +94,13 @@ namespace ProjectHealth
             string gender = cbGender.Text;
             Person p = new Person() { Name = name, Age = age, Weight = weight, Height = height, Gender = gender };
             db.AddPerson(p);
-                      
-            
-        }
+
+            MealPicker win = new MealPicker();
+            win.Show();
+            this.Close();
+
+
+        }// end of btnAdd_Click 
     }
 
     internal class Person

@@ -75,11 +75,11 @@ resolve display to list in datagrid.
 1. Done 
 Completed Database
 User submit window
+linking windows(Pass user infor to next window)
 2. Not Quite done
-RecipeSearch window 
+MealPicker window 
 Add to user tables
 3. ToDo
-Pass user infor to next window
 image display in window
 Calendar view
 4. Need Help Section
