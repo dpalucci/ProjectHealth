@@ -13,14 +13,20 @@
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" Margin="10,10,221,10" IsReadOnly="True"
+        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" Margin="10,-8,221,28" 
                   SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="Title" Width="5*" IsReadOnly="True"  Binding="{Binding Path=Title}" />
-                <DataGridTextColumn Header="Calories" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Calories}" />
-                <DataGridTextColumn Header="Fat" Width="1*" IsReadOnly="True"  Binding="{Binding Path=Fat}" />
-                <DataGridTextColumn Header="Protein" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Protein}" />
+                <DataGridTextColumn Header="Title" Width="5*"   Binding="{Binding Path=Title}" />
+                <DataGridTextColumn Header="Calories" Width="2*"   Binding="{Binding Path=Calories}" />
+                <DataGridTextColumn Header="Fat" Width="1*"   Binding="{Binding Path=Fat}" />
+                <DataGridTextColumn Header="Protein" Width="2*"   Binding="{Binding Path=Protein}" />
             </DataGrid.Columns>
+
+            <DataGrid.ContextMenu>
+                <ContextMenu x:Name="DeleteContextMenu">
+                    <MenuItem Header="Delete Record" Click="ContextMenu_Click" />
+                </ContextMenu>
+            </DataGrid.ContextMenu>
         </DataGrid>
         <Label Content="Id:" HorizontalAlignment="Left" Margin="168,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.623,-0.336" Width="45" Grid.Column="2"/>
         <Label Content="Title:" HorizontalAlignment="Left" Margin="170,38,0,0" VerticalAlignment="Top" Grid.Column="2"/>

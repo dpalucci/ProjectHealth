@@ -3,6 +3,8 @@
 
 using System;
 using System.Collections.Generic;
+using System.Collections.Specialized;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -28,16 +30,13 @@ namespace ProjectHealth
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
 
-
-
         public MealPicker()
         {
-
             try
             {
                 db = new Database();
             }
-            catch (Exception )
+            catch (Exception)
             {
                 // TODO: show a message box
                 MessageBox.Show("Fatal error: unable to connect to database",
@@ -46,7 +45,19 @@ namespace ProjectHealth
                 Environment.Exit(1);
                 //throw e;
             }
+
             InitializeComponent();
+
+            dgRecipeList.ItemsSource = recipeList;
+            cbTitle.ItemsSource = titleList;
+            btDelete.IsEnabled = false;
+            btUpdate.IsEnabled = false;
+            dgRecipeList.SelectionMode = DataGridSelectionMode.Single;
+
+            //Get a CollectionViewSource wich would implement Interface INotifyCollectionChanged to handle events related to update ItemSource in datagrid
+            CollectionView dgRecipeListCollectionView = (CollectionView)CollectionViewSource.GetDefaultView(dgRecipeList.Items);
+            ((INotifyCollectionChanged)dgRecipeListCollectionView).CollectionChanged += new NotifyCollectionChangedEventHandler(dgRecipeList_CollectionChanged);
+
             try
             {
                 List<Recipe> list = db.GetAllRecipes();
@@ -63,37 +74,57 @@ namespace ProjectHealth
 
         }
 
+
+
         private void btAdd_Click(object sender, RoutedEventArgs e)
         {
-            try
+            if (!ValidateInput())
             {
-                string title = cbTitle.Text;
-                double fat = double.Parse(tbFat.Text);
-                double protein = double.Parse(tbProtein.Text);
-                double caloris = double.Parse(tbCalories.Text);
-                double carb = double.Parse(tbCarb.Text);
-                Recipe r = new Recipe() { Title = title, Protein = protein, Calories = caloris, Carb = carb, Fat = fat };
-                db.AddRecipe(r);
-                tbProtein.Text = "";
-                tbFat.Text = "";
-                tbCarb.Text = "";
-                tbCalories.Text = "";
-                List<Recipe> list = db.GetAllRecipes();
-                dgRecipeList.ItemsSource = list;
+                return;
             }
-            catch (IOException ex)
+
+
+            Recipe recipe = getNewRecipe();
+            //Add the new Recipe to the grid
+            recipeList.Add(recipe);
+            dgRecipeList.Items.Refresh();
+            //Add the new title to the list of title or change the list of title )
+            if (!titleList.Contains(recipe.Title))
             {
-                MessageBox.Show("Enter correct data format" + ex.Message);
+                titleList.Add(recipe.Title);
+                cbTitle.Items.Refresh();
             }
         }
 
 
 
-        
+
+
+
 
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
+            if (!ValidateInput())
+            {
+                return;
+            }
 
+            Recipe newRecipe = getNewRecipe();
+            Recipe selectedRecipe = (Recipe)dgRecipeList.SelectedItem;
+            selectedRecipe.Title = newRecipe.Title;
+            selectedRecipe.Fat = newRecipe.Fat;
+            selectedRecipe.Calories = newRecipe.Calories;
+            selectedRecipe.Carb = newRecipe.Carb;
+            selectedRecipe.Protein = newRecipe.Protein;
+            //refresh the grid
+            dgRecipeList.Items.Refresh();
+            //Add the new title to the title list 
+            if (!titleList.Contains(newRecipe.Title))
+            {
+
+                titleList.Add(newRecipe.Title);
+                cbTitle.Items.Refresh();
+            }
         }
 
         private void btDelete_Click(object sender, RoutedEventArgs e)
@@ -118,9 +149,16 @@ namespace ProjectHealth
         }
 
         //Data Grid
+        private void dgRecipeList_CollectionChanged(object sender, NotifyCollectionChangedEventArgs e)
+        {
+            //Enable  Context menu if there are items in datagrid view and disable if there are not
+
+            DeleteContextMenu.IsEnabled = (dgRecipeList.Items.Count != 0);
+        }
+
         private void dgRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Recipe r = (Recipe) dgRecipeList.SelectedItem;
+            Recipe r = (Recipe)dgRecipeList.SelectedItem;
             if (r == null)
             {
                 //if there is no selection dissable buttons Update and Add
@@ -133,7 +171,7 @@ namespace ProjectHealth
                 btUpdate.IsEnabled = true;
                 btDelete.IsEnabled = true;
                 //if there is a selection populate text boxes and combo box with the properties of the objetc selected in data grid
-                
+
                 cbTitle.SelectedItem = r.Title;
                 tbFat.Text = r.Fat + "";
                 tbProtein.Text = r.Protein + "";
@@ -143,6 +181,54 @@ namespace ProjectHealth
             }
 
 
+        }
+
+        private void DeleteRecord()
+        {
+
+            MessageBoxResult answer = MessageBox.Show("Are you sure you want to delete row " + (dgRecipeList.SelectedIndex + 1) + "?", "Delete", MessageBoxButton.OKCancel, MessageBoxImage.Question);
+            if (answer == MessageBoxResult.OK)
+            {
+                IEditableCollectionView items = dgRecipeList.Items;
+                if (items.CanRemove)
+                {
+                    items.RemoveAt(dgRecipeList.SelectedIndex);
+                }
+
+            }
+        }
+
+
+        private void ContextMenu_Click(object sender, RoutedEventArgs e)
+        {
+            DeleteRecord();
+        }
+
+        private Recipe getNewRecipe()
+        {
+            string title = "";
+            if (cbTitle.SelectedItem == null)
+            {
+                title = cbTitle.Text.Trim();
+            }
+            else
+            {
+                title = cbTitle.SelectedItem.ToString();
+            }
+
+            double fat = double.Parse(tbFat.Text);
+            double protein = double.Parse(tbProtein.Text);
+            double caloris = double.Parse(tbCalories.Text);
+            double carb = double.Parse(tbCarb.Text);
+            Recipe recipe = new Recipe() { Title = title, Protein = protein, Calories = caloris, Carb = carb, Fat = fat };
+            db.AddRecipe(recipe);
+            tbProtein.Text = "";
+            tbFat.Text = "";
+            tbCarb.Text = "";
+            tbCalories.Text = "";
+
+
+            return recipe;
         }
 
         //Validations
@@ -156,7 +242,7 @@ namespace ProjectHealth
             }
 
             double calories = double.Parse(tbCalories.Text);
-            if (calories < 0 || calories >10000)
+            if (calories < 0 || calories > 10000)
             {
                 MessageBox.Show("Caloris must be a number betwee 0-10000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
@@ -165,7 +251,7 @@ namespace ProjectHealth
             double fat = double.Parse(tbFat.Text);
             if (fat < 0 || fat > 100)
             {
-                MessageBox.Show("Caloris must be a number betwee 0-100", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Caloris must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
