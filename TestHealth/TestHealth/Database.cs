@@ -42,7 +42,7 @@ namespace TestHealth
                 cmd.Parameters.AddWithValue("@Title", r.Title);
                 cmd.Parameters.AddWithValue("@Fat", r.Fat);
                 cmd.Parameters.AddWithValue("@Protein", r.Protein);
-                cmd.Parameters.AddWithValue("@Calorie", r.Calories);
+                cmd.Parameters.AddWithValue("@Calories", r.Calories);
                 cmd.ExecuteNonQuery();
             }
         }

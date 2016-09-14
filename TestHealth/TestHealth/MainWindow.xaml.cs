@@ -22,6 +22,10 @@ namespace TestHealth
     public partial class MainWindow : Window
     {
         Database db;
+        List<string> titleList = new List<string>();
+        List<Recipe> recipeList = new List<Recipe>();
+
+
 
         public MainWindow()
         {
@@ -43,7 +47,7 @@ namespace TestHealth
             try
             {
                 List<Recipe> list = db.GetAllRecipes();
-                dgRecipeList.ItemsSource = list;
+                //dgRecipeList.ItemsSource = list;
             }
             catch (Exception e)
             {
@@ -72,7 +76,7 @@ namespace TestHealth
                 tbCarb.Text = "";
                 tbCalories.Text = "";
                 List<Recipe> list = db.GetAllRecipes();
-                dgRecipeList.ItemsSource = list;
+                //dgRecipeList.ItemsSource = list;
             }
             catch (IOException ex)
             {
@@ -127,7 +131,7 @@ namespace TestHealth
                 btDelete.IsEnabled = true;
                 //if there is a selection populate text boxes and combo box with the properties of the objetc selected in data grid
                 
-                cbTitle.SelectItems = r.Title;
+                cbTitle.SelectedItem = r.Title;
                 tbFat.Text = r.Fat + "";
                 tbProtein.Text = r.Protein + "";
                 tbCarb.Text = r.Carb + "";
