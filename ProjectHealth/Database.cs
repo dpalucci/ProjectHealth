@@ -66,12 +66,7 @@ namespace ProjectHealth
                 cmd.Parameters.AddWithValue("@Title", r.Title);
                 cmd.Parameters.AddWithValue("@Calories", r.Calories);
                 cmd.Parameters.AddWithValue("@Fat", r.Fat);
-<<<<<<< .merge_file_a14276
                 cmd.Parameters.AddWithValue("@Protein", r.Protein);
-                
-=======
-                cmd.Parameters.AddWithValue("@Protein", r.Protein);                
->>>>>>> .merge_file_a07572
                 cmd.ExecuteNonQuery();
             }
         }
