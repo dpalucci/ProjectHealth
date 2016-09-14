@@ -25,6 +25,8 @@
         <TextBox x:Name="tbHeight" HorizontalAlignment="Left" Height="23" Margin="129,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="345,251,0,0" VerticalAlignment="Top" Width="140"/>
         <Label x:Name="label2" Content="Select a Plan Below" HorizontalAlignment="Left" Margin="345,7,0,0" VerticalAlignment="Top" Width="140"/>
+        <Label x:Name="label3" Content="ft." HorizontalAlignment="Left" Margin="254,207,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="lbs" HorizontalAlignment="Left" Margin="249,160,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
