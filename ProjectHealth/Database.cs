@@ -53,7 +53,24 @@ namespace ProjectHealth
             }
         }
 
-        /*
+                    
+
+        // during prototyping stage we make methods that are
+        // not yet implemented throw new NotImplementedException();
+        public void AddRecipe(Recipe r)
+        {
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO Recipe (Title, Fat, Protein, Calories) VALUES (@Title, @Fat, @Protein, @Calories)"))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Connection = conn;
+                cmd.Parameters.AddWithValue("@Title", r.Title);
+                cmd.Parameters.AddWithValue("@Fat", r.Fat);
+                cmd.Parameters.AddWithValue("@Protein", r.Protein);
+                cmd.Parameters.AddWithValue("@Calories", r.Calories);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
         public List<Recipe> GetAllRecipes()
         {
             List<Recipe> list = new List<Recipe>();
@@ -65,18 +82,62 @@ namespace ProjectHealth
                 {
                     while (reader.Read())
                     {
-                        //int id = reader.GetInt32(reader.GetOrdinal("Id"));
+                        // column by name - the better (preferred) way
+                        
                         string title = reader.GetString(reader.GetOrdinal("Title"));
-                        double calories = reader.GetFloat(reader.GetOrdinal("Protein"));
-                        double protein = reader.GetFloat(reader.GetOrdinal("Calories"));
-                        double fat = reader.GetFloat(reader.GetOrdinal("Fat"));
-                        Recipe r = new Recipe() { Title = title, Protein = protein, Calories = calories, Fat = fat };
+                        double calories = reader.GetDouble(reader.GetOrdinal("Calories"));
+                        double fat = reader.GetDouble(reader.GetOrdinal("Fat"));
+                        double protein = reader.GetDouble(reader.GetOrdinal("Protein"));
+
+                        Recipe r = new Recipe() { Title = title, Calories = calories, Fat = fat, Protein = protein };
                         list.Add(r);
+                        // Console.WriteLine("Person[{0}]: {1} is {2} y/o", id, name, age);
                     }
                 }
             }
             return list;
         }
-        */
+
+        public Recipe GetRecipeById(int Id)
+        {
+            Recipe r = new Recipe();
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM Recipe WHERE Id=@Id", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+            }
+            return r;
+        }
+
+        public void DeleteRecipeById(int Id)
+        {
+            using (SqlCommand cmd = new SqlCommand("DELETE FROM Recipe WHERE Id=@Id", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Id", Id);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+        public void UpdateRecipe(Recipe r)
+        {
+            using (SqlCommand cmd = new SqlCommand(
+                "UPDATE Recipe SET Title = @Title, Fat = @Fat , Calories = @Calories, Protein = @Protein, Type = @Type, Carb = @Carb WHERE Id=@Id", conn))
+            {
+                cmd.CommandType = System.Data.CommandType.Text;
+                cmd.Parameters.AddWithValue("@Title", r.Title);
+                cmd.Parameters.AddWithValue("@Fat", r.Fat);
+                cmd.Parameters.AddWithValue("@Protein", r.Protein);
+                cmd.Parameters.AddWithValue("@Calories", r.Calories);
+                cmd.Parameters.AddWithValue("@Carb", r.Carb);
+                cmd.Parameters.AddWithValue("@Id", r.Id);
+                cmd.ExecuteNonQuery();
+            }
+        }
+
+
+
     }
 }
+
