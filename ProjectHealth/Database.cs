@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace ProjectHealth
 {
@@ -24,8 +25,6 @@ namespace ProjectHealth
 
         const string CONN_STRING = @"Data Source=ipd8vs.database.windows.net;Initial Catalog=ProjectHealthDB;Integrated Security=False;User ID=sqladmin;Password=IPD8rocks!;Connect Timeout=15;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-         
-
         private SqlConnection conn;
 
         public Database()
@@ -34,30 +33,23 @@ namespace ProjectHealth
             conn.Open();
         }
 
-        public void AddPerson(string name, int age, float weight, float height, string gender)
-        {
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO USER (Name, Age, Weight, Height, Gender) VALUES (@Name, @Age, @Weight, @Height, @Gender)"))
-            {
-                cmd.CommandType = System.Data.CommandType.Text;
-                cmd.Connection = conn;
-                cmd.Parameters.AddWithValue("@Name", name);
-                cmd.Parameters.AddWithValue("@Age", age);
-                cmd.Parameters.AddWithValue("@Weight", weight);
-                cmd.Parameters.AddWithValue("@Height", height);
-                cmd.Parameters.AddWithValue("@Gender", gender);
-                cmd.ExecuteNonQuery();
-            }
-        }
-
         public void AddPerson(Person p)
         {
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO Person (Name, Age) VALUES (@Name, @Age)"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [USER] (Name, Age, Weight, Height, Gender) VALUES (@Name, @Age, @Weight, @Height, @Gender)"))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@Name", p.Name);
                 cmd.Parameters.AddWithValue("@Age", p.Age);
+                cmd.Parameters.AddWithValue("@Weight", p.Weight);
+                cmd.Parameters.AddWithValue("@Height", p.Height);
+                cmd.Parameters.AddWithValue("@Gender", p.Gender);
+                
                 cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Saved to USER table", "INFORMATION");
+
+               
             }
         }
 
