@@ -64,9 +64,10 @@ namespace ProjectHealth
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Connection = conn;
                 cmd.Parameters.AddWithValue("@Title", r.Title);
+                cmd.Parameters.AddWithValue("@Calories", r.Calories);
                 cmd.Parameters.AddWithValue("@Fat", r.Fat);
                 cmd.Parameters.AddWithValue("@Protein", r.Protein);
-                cmd.Parameters.AddWithValue("@Calories", r.Calories);
+                
                 cmd.ExecuteNonQuery();
             }
         }

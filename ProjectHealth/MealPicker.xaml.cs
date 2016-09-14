@@ -79,7 +79,7 @@ namespace ProjectHealth
                 tbCarb.Text = "";
                 tbCalories.Text = "";
                 List<Recipe> list = db.GetAllRecipes();
-                //dgRecipeList.ItemsSource = list;
+                dgRecipeList.ItemsSource = list;
             }
             catch (IOException ex)
             {

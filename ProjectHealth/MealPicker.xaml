@@ -17,7 +17,7 @@
                   SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Width="5*" IsReadOnly="True"  Binding="{Binding Path=Title}" />
-                <DataGridTextColumn Header="Calories" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Caloris}" />
+                <DataGridTextColumn Header="Calories" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Calories}" />
                 <DataGridTextColumn Header="Fat" Width="1*" IsReadOnly="True"  Binding="{Binding Path=Fat}" />
                 <DataGridTextColumn Header="Protein" Width="2*" IsReadOnly="True"  Binding="{Binding Path=Protein}" />
             </DataGrid.Columns>
