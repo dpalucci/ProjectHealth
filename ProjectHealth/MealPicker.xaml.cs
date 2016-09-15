@@ -51,7 +51,7 @@ namespace ProjectHealth
 
             dgRecipeList.ItemsSource = recipeList;
             // cbTitle.ItemsSource = titleList;
-            cbTitle.ItemsSource= db.LoadTitle(titleList);
+            cbTitle.ItemsSource =  db.GetTitle();
             btDelete.IsEnabled = false;
             btUpdate.IsEnabled = false;
             dgRecipeList.SelectionMode = DataGridSelectionMode.Single;
@@ -142,7 +142,7 @@ namespace ProjectHealth
         //Combo box
         private void cbTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            
         }
 
         //Data Grid

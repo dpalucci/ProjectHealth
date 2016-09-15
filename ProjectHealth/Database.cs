@@ -50,23 +50,7 @@ namespace ProjectHealth
             }
         }
 
-        public List<string> LoadTitle(List<string> lstTitle)
-        {
-            SqlCommand cmd = new SqlCommand("SELECT Title FROM Recipe", conn);
-            using (SqlDataReader reader = cmd.ExecuteReader())
-            { 
-
-            // DataTable dt = new DataTable();
-          //  dt.Columns.Add("Title", typeof(string));
-           // dt.Load(reader);
-             while (reader.Read())
-                {
-                    lstTitle.Add(reader["Title"].ToString());
-                }
-
-            }
-            return (lstTitle);
-        }
+        
 
         // during prototyping stage we make methods that are
         // not yet implemented throw new NotImplementedException();
@@ -109,6 +93,25 @@ namespace ProjectHealth
                 }
             }
             return list;
+        }
+
+        public List<string> GetTitle()
+        {
+            List<string> listTitle = new List<string>();
+            SqlCommand cmd = new SqlCommand("SELECT Title FROM Recipe", conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            {
+
+                // DataTable dt = new DataTable();
+                //  dt.Columns.Add("Title", typeof(string));
+                // dt.Load(reader);
+                while (reader.Read())
+                {
+                    listTitle.Add(reader["Title"].ToString());
+                }
+
+            }
+            return (listTitle);
         }
 
         public Recipe GetRecipeById(int Id)
