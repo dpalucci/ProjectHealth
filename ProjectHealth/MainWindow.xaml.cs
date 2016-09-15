@@ -40,7 +40,7 @@ namespace ProjectHealth
         }
 
 
-        private bool ValidateInput()
+        public bool ValidateInput()
         {
             // Validate for null  values in input fields
             if (tbName.Text == null || tbName.Text== "") 

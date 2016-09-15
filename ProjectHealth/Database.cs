@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ProjectHealth
 {
-    class Recipe
+    public class Recipe
     {
         public int Id { get; set; }
         public string Title { get; set; }
