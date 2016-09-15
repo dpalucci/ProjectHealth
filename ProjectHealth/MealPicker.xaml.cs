@@ -29,7 +29,7 @@ namespace ProjectHealth
         Database db;
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
-        List<Recipe> dgList = new List<Recipe>();
+        
 
         public MealPicker()
         {
@@ -89,7 +89,7 @@ namespace ProjectHealth
             Recipe recipe = getNewRecipe();
             //Add the new Recipe to the grid
             recipeList.Add(recipe);
-            dgList.Add(recipe);
+            
             dgRecipeList.Items.Refresh();
             //Add the new title to the list of title or change the list of title )
             if (!titleList.Contains(recipe.Title))
