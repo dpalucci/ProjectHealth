@@ -85,3 +85,18 @@ Calendar view
 4. Need Help Section
 binding to combobox 
 resolve display to list in datagrid.
+
+09/15/2016
+1. Done
+Completed Database
+User submit window
+linking windows(Pass user infor to next window)
+passing DB data to combobox
+Add to user tables
+2. Not Quite done
+MealPicker window 
+3. ToDo
+image display in window
+Calendar view
+4. Need Help Section
+resolve display to list in datagrid.

@@ -98,11 +98,6 @@ namespace ProjectHealth
         }
 
 
-
-
-
-
-
         private void btUpdate_Click(object sender, RoutedEventArgs e)
         {
             if (!ValidateInput())
@@ -122,7 +117,6 @@ namespace ProjectHealth
             //Add the new title to the title list 
             if (!titleList.Contains(newRecipe.Title))
             {
-
                 titleList.Add(newRecipe.Title);
                 cbTitle.Items.Refresh();
             }
@@ -238,35 +232,35 @@ namespace ProjectHealth
             //TODO: Ask teacher if it is a good idea to validate properties in setters of Animal class, and to catch exception at instantiation rather than valiadate input fields
             if (cbTitle.SelectedItem == null && cbTitle.Text == "")
             {
-                MessageBox.Show("Please choose a title from the drop down menu or write it in the input field", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Please choose a title from the drop down menu or add it manually", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             double calories = double.Parse(tbCalories.Text);
             if (calories < 0 || calories > 10000)
             {
-                MessageBox.Show("Caloris must be a number betwee 0-10000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Calories must be a number betwee 0-10000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             double fat = double.Parse(tbFat.Text);
             if (fat < 0 || fat > 100)
             {
-                MessageBox.Show("Caloris must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Fat must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             double protein = double.Parse(tbProtein.Text);
             if (protein < 0 || protein > 1000)
             {
-                MessageBox.Show("Caloris must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Protein must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 
             double carb = double.Parse(tbCarb.Text);
             if (calories < 0 || calories > 1000)
             {
-                MessageBox.Show("Caloris must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Carbs must be a number betwee 0-1000", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
             return true;
