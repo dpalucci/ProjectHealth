@@ -29,6 +29,7 @@ namespace ProjectHealth
         Database db;
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
+        List<Recipe> dgList = new List<Recipe>();
 
         public MealPicker()
         {
@@ -88,12 +89,14 @@ namespace ProjectHealth
             Recipe recipe = getNewRecipe();
             //Add the new Recipe to the grid
             recipeList.Add(recipe);
+            dgList.Add(recipe);
             dgRecipeList.Items.Refresh();
             //Add the new title to the list of title or change the list of title )
             if (!titleList.Contains(recipe.Title))
             {
                 titleList.Add(recipe.Title);
                 cbTitle.Items.Refresh();
+                
             }
         }
 
@@ -131,10 +134,12 @@ namespace ProjectHealth
                     "Invalid action", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-            db.DeleteRecipeById(r.Id);
-            List<Recipe> list = db.GetAllRecipes();
-            dgRecipeList.ItemsSource = list;
 
+            DeleteRecord();
+            
+            /*List<Recipe> list = db.GetAllRecipes();
+            dgRecipeList.ItemsSource = list;
+            */
         }
 
         //Combo box
@@ -226,6 +231,11 @@ namespace ProjectHealth
             return recipe;
         }
 
+
+      
+
+       
+       
         //Validations
         private bool ValidateInput()
         {
@@ -265,6 +275,8 @@ namespace ProjectHealth
             }
             return true;
         }
+
+       
 
     }
 }
