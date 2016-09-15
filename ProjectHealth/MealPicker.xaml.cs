@@ -29,10 +29,7 @@ namespace ProjectHealth
         Database db;
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
-<<<<<<< HEAD
-        
-=======
->>>>>>> cb78f96134dd2312b2739c2bdcf73e53845efcf8
+
 
         public MealPicker()
         {
@@ -92,10 +89,7 @@ namespace ProjectHealth
             Recipe recipe = getNewRecipe();
             //Add the new Recipe to the grid
             recipeList.Add(recipe);
-<<<<<<< HEAD
-            
-=======
->>>>>>> cb78f96134dd2312b2739c2bdcf73e53845efcf8
+
             dgRecipeList.Items.Refresh();
             //Add the new title to the list of title or change the list of title )
             if (!titleList.Contains(recipe.Title))
