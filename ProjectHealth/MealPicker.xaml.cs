@@ -29,7 +29,10 @@ namespace ProjectHealth
         Database db;
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
+<<<<<<< HEAD
         
+=======
+>>>>>>> cb78f96134dd2312b2739c2bdcf73e53845efcf8
 
         public MealPicker()
         {
@@ -89,14 +92,16 @@ namespace ProjectHealth
             Recipe recipe = getNewRecipe();
             //Add the new Recipe to the grid
             recipeList.Add(recipe);
+<<<<<<< HEAD
             
+=======
+>>>>>>> cb78f96134dd2312b2739c2bdcf73e53845efcf8
             dgRecipeList.Items.Refresh();
             //Add the new title to the list of title or change the list of title )
             if (!titleList.Contains(recipe.Title))
             {
                 titleList.Add(recipe.Title);
                 cbTitle.Items.Refresh();
-                
             }
         }
 
@@ -134,12 +139,10 @@ namespace ProjectHealth
                     "Invalid action", MessageBoxButton.OK, MessageBoxImage.Stop);
                 return;
             }
-
-            DeleteRecord();
-            
-            /*List<Recipe> list = db.GetAllRecipes();
+            db.DeleteRecipeById(r.Id);
+            List<Recipe> list = db.GetAllRecipes();
             dgRecipeList.ItemsSource = list;
-            */
+
         }
 
         //Combo box
@@ -231,15 +234,10 @@ namespace ProjectHealth
             return recipe;
         }
 
-
-      
-
-       
-       
         //Validations
-        private bool ValidateInput()
+        public bool ValidateInput()
         {
-            //TODO: Ask teacher if it is a good idea to validate properties in setters of Animal class, and to catch exception at instantiation rather than valiadate input fields
+            
             if (cbTitle.SelectedItem == null && cbTitle.Text == "")
             {
                 MessageBox.Show("Please choose a title from the drop down menu or add it manually", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -275,8 +273,6 @@ namespace ProjectHealth
             }
             return true;
         }
-
-       
 
     }
 }

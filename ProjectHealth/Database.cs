@@ -8,7 +8,7 @@ using System.Windows;
 
 namespace ProjectHealth
 {
-    class Recipe
+    public class Recipe
     {
         public int Id { get; set; }
         public string Title { get; set; }
@@ -46,7 +46,7 @@ namespace ProjectHealth
                 cmd.Parameters.AddWithValue("@Gender", p.Gender);       
                 cmd.ExecuteNonQuery();
                 //show message window user was saved
-                MessageBox.Show("Saved to USER table", "INFORMATION");             
+                //MessageBox.Show("Saved to USER table", "INFORMATION");             
             }
         }
 
