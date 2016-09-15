@@ -49,7 +49,8 @@ namespace ProjectHealth
             InitializeComponent();
 
             dgRecipeList.ItemsSource = recipeList;
-            cbTitle.ItemsSource = titleList;
+            // cbTitle.ItemsSource = titleList;
+            cbTitle.ItemsSource= db.LoadTitle(titleList);
             btDelete.IsEnabled = false;
             btUpdate.IsEnabled = false;
             dgRecipeList.SelectionMode = DataGridSelectionMode.Single;

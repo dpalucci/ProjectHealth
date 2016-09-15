@@ -39,9 +39,53 @@ namespace ProjectHealth
             InitializeComponent();
         }
 
+
+        private bool ValidateInput()
+        {
+            // Validate for null  values in input fields
+            if (tbName.Text == null || tbName.Text== "") 
+            {
+                MessageBox.Show("Please enter a name ", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            // Validate for null  values in input fields
+            if (tbAge.Text == null || tbAge.Text == "")
+            {
+                MessageBox.Show("Please enter value for age", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            // Validate for null  values in input fields
+            if (cbGender.SelectedItem == null || cbGender.Text == "")
+            {
+                MessageBox.Show("Please enter value for Gender input field", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            // Validate for null  values in input fields
+            if (tbWeight.Text == null || tbWeight.Text == "")
+            {
+                MessageBox.Show("Please enter value for Weight", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            // Validate for null  values in input fields
+            if (tbHeight.Text == null || tbHeight.Text == "")
+            {
+                MessageBox.Show("Please enter value for Height", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            return true;
+        }
+
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            // FIXME: verify user name is correct
+
+            //check for null values in input - if yes,then return
+            if (!ValidateInput())
+            {
+                return;
+            }
+
+            // validate name
             string name = tbName.Text;
             {
                 if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (name.Length < 3))
@@ -51,18 +95,11 @@ namespace ProjectHealth
                     tbName.Focus();
                     return;
                 }
-                /*
-                if (name.Length < 3)
-                {
-                    MessageBox.Show("Invalid Name: Invalid name entered, must be > 2 characters",
-                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                    return;
-                }
-                */
             }
             //Age validation
             int age = int.Parse(tbAge.Text);
             {
+                // if (age < 0 || age > 130)
                 if (age < 0 || age > 130)
                 {
                     MessageBox.Show("Invalid Age: Invalid age entered, must be >0 and < 130",
@@ -71,7 +108,7 @@ namespace ProjectHealth
                 }
             }
             //Weight Validation
-            float weight = float.Parse(tbWeight.Text);
+            double weight = float.Parse(tbWeight.Text);
             {
                 if (weight < 90 || weight > 650)
                 {
@@ -81,7 +118,7 @@ namespace ProjectHealth
                 }
             }
             //Height Validation
-            float height = float.Parse(tbHeight.Text);
+            double height = float.Parse(tbHeight.Text);
             {
                 if (height < 3.5 || height > 8)
                 {

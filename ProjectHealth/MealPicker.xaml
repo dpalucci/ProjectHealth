@@ -13,7 +13,7 @@
             <ColumnDefinition Width="13*"/>
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" Margin="10,-8,221,28" 
+        <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" Margin="0,10,231,10" 
                   SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Title" Width="5*"   Binding="{Binding Path=Title}" />

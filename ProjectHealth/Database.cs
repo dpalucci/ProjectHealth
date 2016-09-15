@@ -43,17 +43,30 @@ namespace ProjectHealth
                 cmd.Parameters.AddWithValue("@Age", p.Age);
                 cmd.Parameters.AddWithValue("@Weight", p.Weight);
                 cmd.Parameters.AddWithValue("@Height", p.Height);
-                cmd.Parameters.AddWithValue("@Gender", p.Gender);
-                
+                cmd.Parameters.AddWithValue("@Gender", p.Gender);       
                 cmd.ExecuteNonQuery();
-
-                    MessageBox.Show("Saved to USER table", "INFORMATION");
-
-               
+                //show message window user was saved
+                MessageBox.Show("Saved to USER table", "INFORMATION");             
             }
         }
 
-                    
+        public List<string> LoadTitle(List<string> lstTitle)
+        {
+            SqlCommand cmd = new SqlCommand("SELECT Title FROM Recipe", conn);
+            using (SqlDataReader reader = cmd.ExecuteReader())
+            { 
+
+            // DataTable dt = new DataTable();
+          //  dt.Columns.Add("Title", typeof(string));
+           // dt.Load(reader);
+             while (reader.Read())
+                {
+                    lstTitle.Add(reader["Title"].ToString());
+                }
+
+            }
+            return (lstTitle);
+        }
 
         // during prototyping stage we make methods that are
         // not yet implemented throw new NotImplementedException();
@@ -136,8 +149,6 @@ namespace ProjectHealth
             }
         }
 
-
-
-    }
-}
+    }//end of Database class
+}//end of namespace ProjectHealth
 

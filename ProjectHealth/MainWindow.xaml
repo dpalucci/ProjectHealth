@@ -17,16 +17,16 @@
             <ComboBoxItem Name="cbMale">Male</ComboBoxItem>
             <ComboBoxItem Name="cbFemale">Female</ComboBoxItem>
         </ComboBox>
-        <TextBox x:Name="tbWeight" HorizontalAlignment="Left" Height="23" Margin="129,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbWeight" HorizontalAlignment="Left" Height="23" Margin="129,160,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88"/>
         <Button x:Name="button" Content="Maintenance Plan" HorizontalAlignment="Left" Margin="345,44,0,0" VerticalAlignment="Top" Width="140"/>
         <Button x:Name="button_Copy" Content="Intermediate Plan" HorizontalAlignment="Left" Margin="345,91,0,0" VerticalAlignment="Top" Width="140"/>
         <Button x:Name="button_Copy1" Content="Weight Loss Plan" HorizontalAlignment="Left" Margin="345,141,0,0" VerticalAlignment="Top" Width="140"/>
         <Label x:Name="label1_Copy2" Content="Height:" HorizontalAlignment="Left" Margin="29,205,0,0" VerticalAlignment="Top" Width="66"/>
-        <TextBox x:Name="tbHeight" HorizontalAlignment="Left" Height="23" Margin="129,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tbHeight" HorizontalAlignment="Left" Height="23" Margin="129,207,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="88"/>
         <Button x:Name="btnAdd" Click="btnAdd_Click" Content="Add" HorizontalAlignment="Left" Margin="345,251,0,0" VerticalAlignment="Top" Width="140"/>
         <Label x:Name="label2" Content="Select a Plan Below" HorizontalAlignment="Left" Margin="345,7,0,0" VerticalAlignment="Top" Width="140"/>
-        <Label x:Name="label3" Content="ft." HorizontalAlignment="Left" Margin="254,207,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label4" Content="lbs" HorizontalAlignment="Left" Margin="249,160,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="ft." HorizontalAlignment="Left" Margin="223,205,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="lbs" HorizontalAlignment="Left" Margin="222,160,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
