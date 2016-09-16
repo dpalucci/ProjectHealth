@@ -44,7 +44,7 @@ namespace ProjectHealth
             double fatsum = 0;
             foreach (Recipe r in recipeList)
             {
-                fatsum += r.Calories;
+                fatsum += r.Fat;
             }
             return fatsum;
         }
@@ -54,7 +54,7 @@ namespace ProjectHealth
             double proteinsum = 0;
             foreach (Recipe r in recipeList)
             {
-                proteinsum += r.Calories;
+                proteinsum += r.Protein;
             }
             return proteinsum;
         } 
