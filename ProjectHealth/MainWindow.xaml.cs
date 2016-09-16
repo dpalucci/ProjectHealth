@@ -77,7 +77,8 @@ namespace ProjectHealth
             if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (tbName.Text.Length < 3))
              {
                     //  name was incorrect
-                    MessageBox.Show("Invalid name, must be > 2 valid characters and start with a Capital letter", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show("Invalid name, must be > 2 valid characters and start with a Capital letter", 
+                        "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     tbName.Focus();
                     return false;
               }
