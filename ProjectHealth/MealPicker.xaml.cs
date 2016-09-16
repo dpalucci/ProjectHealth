@@ -50,10 +50,12 @@ namespace ProjectHealth
             InitializeComponent();
 
             dgRecipeList.ItemsSource = recipeList;
-            cbTitle.ItemsSource =  db.GetTitle();
+            cbTitle.ItemsSource = db.GetTitle();
             btDelete.IsEnabled = false;
             btUpdate.IsEnabled = false;
             dgRecipeList.SelectionMode = DataGridSelectionMode.Single;
+
+
 
             //Get a CollectionViewSource wich would implement Interface INotifyCollectionChanged to handle events related to update ItemSource in datagrid
             CollectionView dgRecipeListCollectionView = (CollectionView)CollectionViewSource.GetDefaultView(dgRecipeList.Items);
@@ -95,6 +97,22 @@ namespace ProjectHealth
             {
                 titleList.Add(recipe.Title);
                 cbTitle.Items.Refresh();
+
+                cbTitle.Text = "";
+                tbFat.Text = "";
+                tbProtein.Text = "";
+                tbCarb.Text = "";
+                tbCalories.Text = "";
+
+                double sumCalories = 0;
+                for (int i = 0; i < dgRecipeList.Items.Count; i++)
+                {
+                    TextBlock tbCalories1 = dgRecipeList.Columns[2].GetCellContent(dgRecipeList.SelectedItems[i]) as TextBlock;
+                    double test = Convert.ToDouble(tbCalories1.Text);
+                    sumCalories += (double.Parse((dgRecipeList.Columns[2].GetCellContent(dgRecipeList.Items[i]) as TextBlock).Text));
+
+                }
+                
             }
         }
 
@@ -141,7 +159,7 @@ namespace ProjectHealth
         //Combo box
         private void cbTitle_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            
+
         }
 
         //Data Grid
@@ -167,8 +185,8 @@ namespace ProjectHealth
                 btUpdate.IsEnabled = true;
                 btDelete.IsEnabled = true;
                 //if there is a selection populate text boxes and combo box with the properties of the objetc selected in data grid
-
-                cbTitle.SelectedItem = r.Title;
+                lblId.Content = r.Id;
+                cbTitle.Text = r.Title;
                 tbFat.Text = r.Fat + "";
                 tbProtein.Text = r.Protein + "";
                 tbCarb.Text = r.Carb + "";
@@ -230,7 +248,7 @@ namespace ProjectHealth
         //Validations
         public bool ValidateInput()
         {
-            
+
             if (cbTitle.SelectedItem == null && cbTitle.Text == "")
             {
                 MessageBox.Show("Please choose a title from the drop down menu or add it manually", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -238,7 +256,7 @@ namespace ProjectHealth
             }
 
             // Validate for null values in input fields
-            if (tbCalories.Text  == null || tbCalories.Text == "")
+            if (tbCalories.Text == null || tbCalories.Text == "")
             {
                 MessageBox.Show("Please enter value for Calories", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
@@ -249,7 +267,7 @@ namespace ProjectHealth
                 MessageBox.Show("Please enter value for Fat", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
- 
+
             if (tbProtein.Text == null || tbProtein.Text == "")
             {
                 MessageBox.Show("Please enter value for Protein", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -291,6 +309,6 @@ namespace ProjectHealth
             return true;
         }
 
+        
     }
 }
-

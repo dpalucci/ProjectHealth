@@ -17,7 +17,7 @@
             <ColumnDefinition Width="350*"/>
         </Grid.ColumnDefinitions>
         <DataGrid x:Name="dgRecipeList" AutoGenerateColumns="False" Margin="0,10,231,10" 
-                  SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3" Background="White" >
+                  SelectionChanged="dgRecipeList_SelectionChanged" SelectionMode="Single" Grid.ColumnSpan="3" Background="White" CellEditEnding="dgRecipeList_CellEditEnding" >
             <DataGrid.BorderBrush>
                 <ImageBrush/>
             </DataGrid.BorderBrush>
@@ -50,32 +50,32 @@
             <Label Content="Label"/>
         </Label>
         <Label Content="Toltal   Calories:" HorizontalAlignment="Left" Height="33" Margin="10,283,0,-45" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="103"/>
-        <TextBlock x:Name="tbCalories1"  HorizontalAlignment="Left" Margin="118,288,0,-45" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" Height="28" Width="63"/>
+        <TextBlock x:Name="tbCalories1"  HorizontalAlignment="Left" Margin="118,288,0,-45" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Width="63"/>
         <Label HorizontalAlignment="Left" Margin="70,334,0,-63" VerticalAlignment="Top">
             <Label Content="Label"/>
         </Label>
         <Label Content="                   Fat:" HorizontalAlignment="Left" Height="33" Margin="10,316,0,-78" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="91"/>
-        <TextBlock x:Name="tbFat1" HorizontalAlignment="Left" Margin="118,321,0,-78" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" Height="28" Width="63"/>
+        <TextBlock x:Name="tbFat1" HorizontalAlignment="Left" Margin="118,321,0,-78" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Width="63"/>
         <Label HorizontalAlignment="Left" Margin="70,367,0,-96" VerticalAlignment="Top">
             <Label Content="Label"/>
         </Label>
         <Label Content="            Protein:" HorizontalAlignment="Left" Height="33" Margin="10,349,0,-111" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="91"/>
-        <TextBlock x:Name="tbProtein1" HorizontalAlignment="Left" Margin="118,354,0,-111" TextWrapping="Wrap" Text="99" VerticalAlignment="Top" Height="28" Width="63"/>
+        <TextBlock x:Name="tbProtein1" HorizontalAlignment="Left" Margin="118,354,0,-111" TextWrapping="Wrap"  VerticalAlignment="Top" Height="28" Width="63"/>
         <Label HorizontalAlignment="Left" Margin="89,301,0,-30" VerticalAlignment="Top" Grid.Column="2">
             <Label Content="Label"/>
         </Label>
         <Label Content="Needed   Calories:" HorizontalAlignment="Left" Height="33" Margin="14,283,0,-45" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="118" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="137,288,0,-45" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="137,288,0,-45" TextWrapping="Wrap" Text="2500" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
         <Label HorizontalAlignment="Left" Margin="89,334,0,-63" VerticalAlignment="Top" Grid.Column="2">
             <Label Content="Label"/>
         </Label>
         <Label Content="                   Fat:" HorizontalAlignment="Left" Height="33" Margin="29,316,0,-78" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="91" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="137,321,0,-78" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="137,321,0,-78" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
         <Label HorizontalAlignment="Left" Margin="89,367,0,-96" VerticalAlignment="Top" Grid.Column="2">
             <Label Content="Label"/>
         </Label>
         <Label Content="            Protein:" HorizontalAlignment="Left" Height="33" Margin="29,349,0,-111" VerticalAlignment="Top" RenderTransformOrigin="-0.263,0.458" Width="91" Grid.Column="2"/>
-        <TextBlock HorizontalAlignment="Left" Margin="137,354,0,-111" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
+        <TextBlock HorizontalAlignment="Left" Margin="137,354,0,-111" TextWrapping="Wrap" Text="250" VerticalAlignment="Top" Height="28" Width="62" Grid.Column="2"/>
         <ComboBox x:Name="cbTitle" Grid.Column="2" HorizontalAlignment="Left" Margin="248,41,0,0" VerticalAlignment="Top" Width="126" IsEditable="True" SelectionChanged="cbTitle_SelectionChanged"/>
         <Label Content="Carbs:" HorizontalAlignment="Left" Margin="168,156,0,0" VerticalAlignment="Top" Width="75" Grid.Column="2"/>
         <TextBox x:Name="tbCarb" HorizontalAlignment="Left" Height="23" Margin="248,156,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="126" RenderTransformOrigin="0.585,2.119" Grid.Column="2"/>
