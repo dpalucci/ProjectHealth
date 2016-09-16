@@ -30,6 +30,34 @@ namespace ProjectHealth
         List<string> titleList = new List<string>();
         List<Recipe> recipeList = new List<Recipe>();
 
+        public double caloriesSum()
+        {
+            double calorissum = 0;
+            foreach(Recipe r in recipeList ){
+                calorissum += r.Calories;
+            }
+            return calorissum;
+        }
+
+        public double fatSum()
+        {
+            double fatsum = 0;
+            foreach (Recipe r in recipeList)
+            {
+                fatsum += r.Calories;
+            }
+            return fatsum;
+        }
+
+        public double proteinSum()
+        {
+            double proteinsum = 0;
+            foreach (Recipe r in recipeList)
+            {
+                proteinsum += r.Calories;
+            }
+            return proteinsum;
+        } 
 
         public MealPicker()
         {
@@ -103,8 +131,11 @@ namespace ProjectHealth
                 tbProtein.Text = "";
                 tbCarb.Text = "";
                 tbCalories.Text = "";
+                tbCalories1.Text = caloriesSum()+"";
+                tbFat1.Text = fatSum() + "";
+                tbProtein1.Text = proteinSum() + "";
 
-                double sumCalories = 0;
+               /* double sumCalories = 0;
                 for (int i = 0; i < dgRecipeList.Items.Count; i++)
                 {
                     TextBlock tbCalories1 = dgRecipeList.Columns[2].GetCellContent(dgRecipeList.SelectedItems[i]) as TextBlock;
@@ -112,6 +143,7 @@ namespace ProjectHealth
                     sumCalories += (double.Parse((dgRecipeList.Columns[2].GetCellContent(dgRecipeList.Items[i]) as TextBlock).Text));
 
                 }
+                */
                 
             }
         }
@@ -178,6 +210,7 @@ namespace ProjectHealth
                 //if there is no selection dissable buttons Update and Add
                 btUpdate.IsEnabled = false;
                 btDelete.IsEnabled = false;
+               
             }
             else
             {
@@ -204,7 +237,11 @@ namespace ProjectHealth
             if (answer == MessageBoxResult.OK)
             {
                 IEditableCollectionView items = dgRecipeList.Items;
-                if (items.CanRemove)
+                if (items == null)
+                {
+                    return;
+                }
+               else if (items.CanRemove)
                 {
                     items.RemoveAt(dgRecipeList.SelectedIndex);
                 }
