@@ -35,7 +35,7 @@ namespace ProjectHealth
 
         public void AddPerson(Person p)
         {
-            using (SqlCommand cmd = new SqlCommand("INSERT INTO [USER] (Name, Age, Weight, Height, Gender) VALUES (@Name, @Age, @Weight, @Height, @Gender)"))
+            using (SqlCommand cmd = new SqlCommand("INSERT INTO [USER] (Name, Age, Weight, Height, Gender, Mealid) VALUES (@Name, @Age, @Weight, @Height, @Gender,@Mealid)"))
             {
                 cmd.CommandType = System.Data.CommandType.Text;
                 cmd.Connection = conn;
@@ -43,7 +43,8 @@ namespace ProjectHealth
                 cmd.Parameters.AddWithValue("@Age", p.Age);
                 cmd.Parameters.AddWithValue("@Weight", p.Weight);
                 cmd.Parameters.AddWithValue("@Height", p.Height);
-                cmd.Parameters.AddWithValue("@Gender", p.Gender);       
+                cmd.Parameters.AddWithValue("@Gender", p.Gender);
+                cmd.Parameters.AddWithValue("@Mealid", p.Mealid);
                 cmd.ExecuteNonQuery();
                 //show message window user was saved
                 //MessageBox.Show("Saved to USER table", "INFORMATION");             
@@ -101,10 +102,6 @@ namespace ProjectHealth
             SqlCommand cmd = new SqlCommand("SELECT Title FROM Recipe", conn);
             using (SqlDataReader reader = cmd.ExecuteReader())
             {
-
-                // DataTable dt = new DataTable();
-                //  dt.Columns.Add("Title", typeof(string));
-                // dt.Load(reader);
                 while (reader.Read())
                 {
                     listTitle.Add(reader["Title"].ToString());

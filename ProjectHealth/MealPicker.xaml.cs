@@ -50,7 +50,6 @@ namespace ProjectHealth
             InitializeComponent();
 
             dgRecipeList.ItemsSource = recipeList;
-            // cbTitle.ItemsSource = titleList;
             cbTitle.ItemsSource =  db.GetTitle();
             btDelete.IsEnabled = false;
             btUpdate.IsEnabled = false;
@@ -235,6 +234,30 @@ namespace ProjectHealth
             if (cbTitle.SelectedItem == null && cbTitle.Text == "")
             {
                 MessageBox.Show("Please choose a title from the drop down menu or add it manually", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            // Validate for null values in input fields
+            if (tbCalories.Text  == null || tbCalories.Text == "")
+            {
+                MessageBox.Show("Please enter value for Calories", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+
+            if (tbFat.Text == null || tbFat.Text == "")
+            {
+                MessageBox.Show("Please enter value for Fat", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+ 
+            if (tbProtein.Text == null || tbProtein.Text == "")
+            {
+                MessageBox.Show("Please enter value for Protein", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                return false;
+            }
+            if (tbCarb.Text == null || tbCarb.Text == "")
+            {
+                MessageBox.Show("Please enter value for Carbs", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
                 return false;
             }
 

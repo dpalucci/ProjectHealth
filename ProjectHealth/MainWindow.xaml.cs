@@ -73,6 +73,40 @@ namespace ProjectHealth
                 return false;
             }
 
+            // validate name
+            if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (tbName.Text.Length < 3))
+             {
+                    //  name was incorrect
+                    MessageBox.Show("Invalid name, must be > 2 valid characters and start with a Capital letter", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    tbName.Focus();
+                    return false;
+              }
+
+            //Age validation: if (age < 0 || age > 130)
+            int age = int.Parse(tbAge.Text);
+            if (age < 0 || age > 130)
+              {
+                    MessageBox.Show("Invalid Age: Invalid age entered, must be >0 and < 130",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return false;
+              }
+
+            //Weight Validation
+            double weight = float.Parse(tbWeight.Text);
+            if (weight < 90 || weight > 650)
+                {
+                    MessageBox.Show("Invalid Weight: Invalid weight entered, must be >=90 and <= 650",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return false;
+                }
+            //Height Validation
+            double height = float.Parse(tbHeight.Text);
+            if (height < 3.5 || height > 8)
+             {
+                    MessageBox.Show("Invalid Height: Invalid height entered, must be >=3.5 and <= 8",
+                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
+                    return false;
+             }
             return true;
         }
 
@@ -84,52 +118,32 @@ namespace ProjectHealth
             {
                 return;
             }
-
             // validate name
             string name = tbName.Text;
-            {
-                if ((!Regex.Match(tbName.Text, "^[A-Z][a-zA-Z]*$").Success) || (name.Length < 3))
-                {
-                    //  name was incorrect
-                    MessageBox.Show("Invalid name, must be > 2 valid characters and start with a Capital letter", "Name Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                    tbName.Focus();
-                    return;
-                }
-            }
+
             //Age validation
             int age = int.Parse(tbAge.Text);
-            {
-                // if (age < 0 || age > 130)
-                if (age < 0 || age > 130)
-                {
-                    MessageBox.Show("Invalid Age: Invalid age entered, must be >0 and < 130",
-                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                    return;
-                }
-            }
+ 
             //Weight Validation
             double weight = float.Parse(tbWeight.Text);
-            {
-                if (weight < 90 || weight > 650)
-                {
-                    MessageBox.Show("Invalid Weight: Invalid weight entered, must be >=90 and <= 650",
-                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                    return;
-                }
-            }
+  
             //Height Validation
             double height = float.Parse(tbHeight.Text);
-            {
-                if (height < 3.5 || height > 8)
-                {
-                    MessageBox.Show("Invalid Height: Invalid height entered, must be >=3.5 and <= 8",
-                        "error", MessageBoxButton.OK, MessageBoxImage.Stop);
-                    return;
-                }
-            }
+  
             //Gender Selection thru Combobox
             string gender = cbGender.Text;
-            Person p = new Person() { Name = name, Age = age, Weight = weight, Height = height, Gender = gender };
+
+            //  int plan = null;
+            int plan = 0 ;
+
+            if (rbtnPlan1.IsChecked == true)
+                plan = 1;
+            else if (rbtnPlan2.IsChecked == true)
+                plan = 2;
+            else if (rbtnPlan2.IsChecked == true)
+                plan = 3;
+
+            Person p = new Person() { Name = name, Age = age, Weight = weight, Height = height, Gender = gender, Mealid = plan};
             db.AddPerson(p);
 
             MealPicker win = new MealPicker();
@@ -147,5 +161,7 @@ namespace ProjectHealth
         public double Weight { get; set; }
         public double Height { get; set; }
         public string Gender { get; set; }
+        public int Mealid { get; set; }
+
     }
 }
