@@ -24,6 +24,9 @@ namespace ProjectHealth
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+
+
     public partial class MealPicker : Window
     {
         Database db;
@@ -204,29 +207,40 @@ namespace ProjectHealth
 
         private void dgRecipeList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Recipe r = (Recipe)dgRecipeList.SelectedItem;
-            if (r == null)
+            // Retrieve slected item first column - check that title is not NULL
+            object item = dgRecipeList.SelectedItem; 
+            string ID = (dgRecipeList.SelectedCells[0].Column.GetCellContent(item) as TextBlock).Text;
+
+            if (ID == null || ID =="")
             {
-                //if there is no selection dissable buttons Update and Add
-                btUpdate.IsEnabled = false;
-                btDelete.IsEnabled = false;
-               
+                MessageBox.Show("Please enter Meal items into grid");
             }
             else
+ 
             {
-                //if there is a selectoin enable buttons Update and Add
-                btUpdate.IsEnabled = true;
-                btDelete.IsEnabled = true;
-                //if there is a selection populate text boxes and combo box with the properties of the objetc selected in data grid
-                lblId.Content = r.Id;
-                cbTitle.Text = r.Title;
-                tbFat.Text = r.Fat + "";
-                tbProtein.Text = r.Protein + "";
-                tbCarb.Text = r.Carb + "";
-                tbCalories.Text = r.Calories + "";
+                Recipe r = (Recipe)dgRecipeList.SelectedItem;
+                if (r == null)
+                {
+                    //if there is no selection disable buttons Update and Deleted
+                    btUpdate.IsEnabled = false;
+                    btDelete.IsEnabled = false;
 
+                }
+                else
+                {
+                    //if there is a selectoin enable buttons Update and Add
+                    btUpdate.IsEnabled = true;
+                    btDelete.IsEnabled = true;
+                    //if there is a selection populate text boxes and combo box with the properties of the objetc selected in data grid
+                    lblId.Content = r.Id;
+                    cbTitle.Text = r.Title;
+                    tbFat.Text = r.Fat + "";
+                    tbProtein.Text = r.Protein + "";
+                    tbCarb.Text = r.Carb + "";
+                    tbCalories.Text = r.Calories + "";
+
+                }
             }
-
 
         }
 
